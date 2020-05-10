@@ -1,15 +1,22 @@
 <h1>Characters</h1>
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let character of characters">
-    {{ character.name }}
-  </li>
-</ul>
-
-<div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-primary" (click)="onPreviousPageClick()">
-    Previous
-  </button>
-  <button type="button" class="btn btn-primary" (click)="onNextPageClick()">
-    Next
-  </button>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let character of characters">
+      {{ character.name }}
+    </li>
+  </ul>
+  <div class="text-center mt-2">
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="onPreviousPageClick()"
+      >
+        Previous
+      </button>
+      <button type="button" class="btn btn-primary" (click)="onNextPageClick()">
+        Next
+      </button>
+    </div>
+  </div>
 </div>
