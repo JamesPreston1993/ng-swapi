@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CharacterListComponent } from './character-list/character-list.component';
 
 const routes: Routes = [
-  { path: 'characters/page/:page', component: CharacterListComponent },
-  { path: '', redirectTo: 'characters/page/1', pathMatch: 'full' },
+  { path: 'characters', component: CharacterListComponent },
+  { path: '', redirectTo: 'characters', pathMatch: 'full' },
 ];
 
 @NgModule({

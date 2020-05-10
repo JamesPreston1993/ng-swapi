@@ -10,6 +10,10 @@ import { Character } from '../models/Character';
 export class CharacterService {
   private charactersUrl = 'https://swapi.dev/api/people/';
 
+  get pageCount() {
+    return 10;
+  }
+
   constructor(private _http: HttpClient) {}
 
   getCharacters(page: number): Observable<Character[]> {
