@@ -1,9 +1,7 @@
-import { Gender } from './Gender';
-
-export class Character {
+export interface Character {
   name: string;
   birthYear: string;
-  gender: Gender;
+  gender: string;
   height: Number;
   mass: Number;
 }
