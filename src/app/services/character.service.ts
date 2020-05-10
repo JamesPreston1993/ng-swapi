@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Character } from '../models/Character';
 
 @Injectable({
@@ -10,7 +12,9 @@ export class CharacterService {
 
   constructor(private _http: HttpClient) {}
 
-  getCharacters() {
-    return this._http.get<Character>(this.charactersUrl);
+  getCharacters(): Observable<Character[]> {
+    return this._http
+      .get<Character[]>(this.charactersUrl)
+      .pipe(map((response) => response['results']));
   }
 }
