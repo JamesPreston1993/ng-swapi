@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { CharacterListComponent } from './character-list/character-list.component';
 
 const routes: Routes = [
-  { path: '', component: CharacterListComponent }
+  { path: 'characters/page/:page', component: CharacterListComponent },
+  { path: '', redirectTo: 'characters/page/1', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

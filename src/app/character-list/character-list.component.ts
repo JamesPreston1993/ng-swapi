@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from '../services/character.service';
 import { Character } from '../models/Character';
 
@@ -9,11 +10,18 @@ import { Character } from '../models/Character';
 })
 export class CharacterListComponent implements OnInit {
   characters: Character[];
-  constructor(private _characterService: CharacterService) {}
+  currentPage: number;
+
+  constructor(
+    private route: ActivatedRoute,
+    private _characterService: CharacterService
+  ) {}
 
   ngOnInit(): void {
+    this.currentPage = parseInt(this.route.snapshot.paramMap.get('page'));
+    console.log(this.currentPage);
     this._characterService
-      .getCharacters()
+      .getCharacters(this.currentPage)
       .subscribe((response) => (this.characters = response));
   }
 }

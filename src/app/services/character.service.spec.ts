@@ -15,7 +15,7 @@ describe('CharacterService', () => {
       // arrange
 
       // act
-      const characters = service.getCharacters();
+      const characters = service.getCharacters(1);
 
       // assert
       expect(characters).not.toBeNull;

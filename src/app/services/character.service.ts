@@ -12,9 +12,9 @@ export class CharacterService {
 
   constructor(private _http: HttpClient) {}
 
-  getCharacters(): Observable<Character[]> {
+  getCharacters(page: number): Observable<Character[]> {
     return this._http
-      .get<Character[]>(this.charactersUrl)
+      .get<Character[]>(`${this.charactersUrl}?page=${page}`)
       .pipe(map((response) => response['results']));
   }
 }
