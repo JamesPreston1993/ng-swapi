@@ -6,9 +6,11 @@
           Details
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Name: Luke Skywalker</li>
-          <li class="list-group-item">Birth Year: 19BBY</li>
-          <li class="list-group-item">Gender: Male</li>
+          <li class="list-group-item">Name: {{ character?.name }}</li>
+          <li class="list-group-item">
+            Birth Year: {{ character?.birth_year }}
+          </li>
+          <li class="list-group-item">Gender: {{ character?.gender }}</li>
         </ul>
       </div>
     </div>
@@ -20,8 +22,12 @@
           Face
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Hair Colour: Blond</li>
-          <li class="list-group-item">Eye Colour: Blue</li>
+          <li class="list-group-item">
+            Hair Colour: {{ character?.hair_color }}
+          </li>
+          <li class="list-group-item">
+            Eye Colour: {{ character?.eye_color }}
+          </li>
         </ul>
       </div>
     </div>
@@ -31,9 +37,11 @@
           Body
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Skin Colour: Fair</li>
-          <li class="list-group-item">Height: 172cm</li>
-          <li class="list-group-item">Mass: 77kg</li>
+          <li class="list-group-item">
+            Skin Colour: {{ character?.skin_color }}
+          </li>
+          <li class="list-group-item">Height: {{ character?.height }}cm</li>
+          <li class="list-group-item">Mass: {{ character?.mass }}kg</li>
         </ul>
       </div>
     </div>
