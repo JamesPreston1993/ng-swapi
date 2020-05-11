@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CharacterService } from '../services/character.service';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../models/Character';
 
 @Component({
@@ -9,18 +7,11 @@ import { Character } from '../models/Character';
   styleUrls: ['./character-details.component.css'],
 })
 export class CharacterDetailsComponent implements OnInit {
-  character: Character;
+  @Input() character: Character;
 
-  constructor(
-    private route: ActivatedRoute,
-    private _characterService: CharacterService
-  ) {}
+  constructor() { }
 
   ngOnInit(): void {
-    const characterId = +this.route.snapshot.paramMap.get('characterId');
 
-    this._characterService
-      .getCharacter(characterId)
-      .subscribe((response) => (this.character = response));
   }
 }
