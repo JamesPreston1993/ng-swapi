@@ -10,7 +10,9 @@
           <li class="list-group-item">
             Birth Year: {{ character?.birth_year }}
           </li>
-          <li class="list-group-item">Gender: {{ character?.gender }}</li>
+          <li class="list-group-item">
+            Gender: {{ character?.gender | titlecase }}
+          </li>
         </ul>
       </div>
     </div>
@@ -23,10 +25,10 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            Hair Colour: {{ character?.hair_color }}
+            Hair Colour: {{ character?.hair_color | titlecase }}
           </li>
           <li class="list-group-item">
-            Eye Colour: {{ character?.eye_color }}
+            Eye Colour: {{ character?.eye_color | titlecase }}
           </li>
         </ul>
       </div>
@@ -38,7 +40,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            Skin Colour: {{ character?.skin_color }}
+            Skin Colour: {{ character?.skin_color | titlecase }}
           </li>
           <li class="list-group-item">Height: {{ character?.height }}cm</li>
           <li class="list-group-item">Mass: {{ character?.mass }}kg</li>
