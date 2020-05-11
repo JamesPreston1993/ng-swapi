@@ -12,12 +12,14 @@ import { ActivatedRoute } from '../../../node_modules/@angular/router';
 export class CharacterListComponent implements OnInit {
   characterData: CharacterResponse;
   characters: Character[];
+  selectedCharacter: Character;
+  isModalOpen: boolean = false;
   currentPage: number;
 
   constructor(
     private route: ActivatedRoute,
     private _characterService: CharacterService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -31,9 +33,13 @@ export class CharacterListComponent implements OnInit {
     });
   }
 
-  calculateCharacterId(index: number): number {
-    if (this.currentPage === 1) return index;
+  onDetailsClick(character) {
+    this.selectedCharacter = character;
+    this.isModalOpen = true;
+  }
 
-    return (this.currentPage - 1) * 10 + index;
+  onModalClosed() {
+    this.isModalOpen = false;
+    this.selectedCharacter = null;
   }
 }
