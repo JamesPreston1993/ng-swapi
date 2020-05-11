@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../services/character.service';
 import { Character } from '../models/Character';
+import { CharacterResponse } from '../models/CharacterResponse';
 
 @Component({
   selector: 'app-character-list',
@@ -8,32 +9,19 @@ import { Character } from '../models/Character';
   styleUrls: ['./character-list.component.css'],
 })
 export class CharacterListComponent implements OnInit {
+  characterData: CharacterResponse;
   characters: Character[];
   currentPage = 1;
 
   constructor(private _characterService: CharacterService) {}
 
   ngOnInit(): void {
-    this.getCharacters();
-  }
-
-  getCharacters() {
     this._characterService
       .getCharacters(this.currentPage)
-      .subscribe((response) => (this.characters = response));
-  }
-
-  onNextPageClick() {
-    if (this.characters.length === this._characterService.pageCount) {
-      this.currentPage++;
-      this.getCharacters();
-    }
-  }
-
-  onPreviousPageClick() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.getCharacters();
-    }
+      .subscribe((response) =>
+      {
+        this.characterData = response;
+        this.characters = this.characterData.results;
+      });
   }
 }

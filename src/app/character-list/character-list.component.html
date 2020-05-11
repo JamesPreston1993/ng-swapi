@@ -9,12 +9,16 @@
     <div class="btn-group">
       <button
         type="button"
+        [disabled]="characterData?.previous === null"
         class="btn btn-primary"
-        (click)="onPreviousPageClick()"
       >
         Previous
       </button>
-      <button type="button" class="btn btn-primary" (click)="onNextPageClick()">
+      <button
+        type="button"
+        [disabled]="characterData?.next === null"
+        class="btn btn-primary"
+        >
         Next
       </button>
     </div>

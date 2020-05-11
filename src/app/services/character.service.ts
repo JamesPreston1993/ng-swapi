@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Character } from '../models/Character';
+import { CharacterResponse } from '../models/CharacterResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +10,10 @@ import { Character } from '../models/Character';
 export class CharacterService {
   private charactersUrl = 'https://swapi.dev/api/people/';
 
-  get pageCount() {
-    return 10;
-  }
-
   constructor(private _http: HttpClient) {}
 
-  getCharacters(page: number): Observable<Character[]> {
+  getCharacters(page: number): Observable<CharacterResponse> {
     return this._http
-      .get<Character[]>(`${this.charactersUrl}?page=${page}`)
-      .pipe(map((response) => response['results']));
+      .get<CharacterResponse>(`${this.charactersUrl}?page=${page}`);
   }
 }
