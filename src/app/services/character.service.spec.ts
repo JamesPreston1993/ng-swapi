@@ -21,4 +21,23 @@ describe('CharacterService', () => {
       expect(characters).not.toBeNull;
     });
   });
+
+  describe('getCharacter', () => {
+    let service: CharacterService;
+
+    beforeEach(() => {
+      TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
+      service = TestBed.inject(CharacterService);
+    });
+
+    it('should return character', () => {
+      // arrange
+
+      // act
+      const character = service.getCharacter(1);
+
+      // assert
+      expect(character).not.toBeNull;
+    });
+  });
 });
