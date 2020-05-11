@@ -16,10 +16,11 @@ export class CharacterListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private _characterService: CharacterService) { }
+    private _characterService: CharacterService
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.currentPage = +params.page || 1;
       this._characterService
         .getCharacters(this.currentPage)
@@ -28,5 +29,11 @@ export class CharacterListComponent implements OnInit {
           this.characters = this.characterData.results;
         });
     });
+  }
+
+  calculateCharacterId(index: number): number {
+    if (this.currentPage === 1) return index;
+
+    return (this.currentPage - 1) * 10 + index;
   }
 }
