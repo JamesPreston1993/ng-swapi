@@ -7,20 +7,12 @@
   </ul>
   <div class="text-center mt-2">
     <div class="btn-group">
-      <button
-        type="button"
-        [disabled]="characterData?.previous === null"
-        class="btn btn-primary"
-      >
+      <a *ngIf="characterData?.previous !== null" [routerLink]="['/characters']" [queryParams]="{ page: previousPage }" class="btn btn-primary">
         Previous
-      </button>
-      <button
-        type="button"
-        [disabled]="characterData?.next === null"
-        class="btn btn-primary"
-        >
+      </a>
+      <a *ngIf="characterData?.next !== null" [routerLink]="['/characters']" [queryParams]="{ page: nextPage }" class="btn btn-primary">
         Next
-      </button>
+      </a>
     </div>
   </div>
 </div>
