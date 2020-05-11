@@ -14,14 +14,6 @@ export class CharacterListComponent implements OnInit {
   characters: Character[];
   currentPage: number;
 
-  get previousPage(): number {
-    return this.currentPage - 1;
-  }
-
-  get nextPage(): number {
-    return this.currentPage + 1;
-  }
-
   constructor(
     private route: ActivatedRoute,
     private _characterService: CharacterService) { }
