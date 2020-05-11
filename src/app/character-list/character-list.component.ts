@@ -15,6 +15,7 @@ export class CharacterListComponent implements OnInit {
   selectedCharacter: Character;
   isModalOpen: boolean = false;
   currentPage: number;
+  isLoading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,11 +25,13 @@ export class CharacterListComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.currentPage = +params.page || 1;
+      this.isLoading = true;
       this._characterService
         .getCharacters(this.currentPage)
         .subscribe((response) => {
           this.characterData = response;
           this.characters = this.characterData.results;
+          this.isLoading = false;
         });
     });
   }

@@ -1,4 +1,9 @@
 <a [routerLink]="['/characters']" class="btn btn-outline-secondary m-3">
   &lt; All Characters
 </a>
-<app-character-details [character]="character"></app-character-details>>
+<div *ngIf="isLoading" class="d-flex justify-content-center">
+  <div class="spinner-border text-primary text-center"></div>
+</div>
+<ng-container *ngIf="!isLoading">
+  <app-character-details [character]="character"></app-character-details>
+</ng-container>

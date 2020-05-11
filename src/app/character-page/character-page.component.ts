@@ -9,8 +9,8 @@ import { Character } from '../models/Character';
   styleUrls: ['./character-page.component.css']
 })
 export class CharacterPageComponent implements OnInit {
-
   character: Character;
+  isLoading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +22,10 @@ export class CharacterPageComponent implements OnInit {
 
     this._characterService
       .getCharacter(characterId)
-      .subscribe((response) => (this.character = response));
+      .subscribe((response) => {
+        this.character = response;
+        this.isLoading = false;
+      });
   }
 
 }
