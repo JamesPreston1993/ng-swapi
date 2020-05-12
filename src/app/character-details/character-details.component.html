@@ -1,51 +1,41 @@
 <div class="container">
-  <div class="row mt-3 mb-3">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          Details
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Name: {{ character?.name }}</li>
-          <li class="list-group-item">
-            Birth Year: {{ character?.birth_year }}
-          </li>
-          <li class="list-group-item">
-            Gender: {{ character?.gender | titlecase }}
-          </li>
-        </ul>
+   <div class="row mt-3 mb-3">
+      <div class="col-12">
+         <div class="card">
+            <div class="card-header">
+               Details
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">Name: {{ character?.name }}</li>
+               <li class="list-group-item">Birth Year: {{ character?.birth_year }}</li>
+               <li class="list-group-item">Gender: {{ character?.gender | titlecase }}</li>
+            </ul>
+         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          Face
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Hair Colour: {{ character?.hair_color | titlecase }}
-          </li>
-          <li class="list-group-item">
-            Eye Colour: {{ character?.eye_color | titlecase }}
-          </li>
-        </ul>
+   </div>
+   <div class="row">
+      <div class="col-6">
+         <div class="card">
+            <div class="card-header">
+               Face
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">Hair Colour: {{ character?.hair_color | titlecase }}</li>
+               <li class="list-group-item">Eye Colour: {{ character?.eye_color | titlecase }}</li>
+            </ul>
+         </div>
       </div>
-    </div>
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          Body
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Skin Colour: {{ character?.skin_color | titlecase }}
-          </li>
-          <li class="list-group-item">Height: {{ character?.height }}cm</li>
-          <li class="list-group-item">Mass: {{ character?.mass }}kg</li>
-        </ul>
+      <div class="col-6">
+         <div class="card">
+            <div class="card-header">
+               Body
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">Skin Colour: {{ character?.skin_color | titlecase }}</li>
+               <li class="list-group-item">Height: {{ character?.height }}cm</li>
+               <li class="list-group-item">Mass: {{ character?.mass }}kg</li>
+            </ul>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>

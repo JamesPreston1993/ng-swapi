@@ -5,14 +5,14 @@ import { CharacterPageComponent } from './character-page/character-page.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'characters', component: CharacterListComponent },
-  { path: 'characters/:characterId', component: CharacterPageComponent },
-  { path: '', redirectTo: 'characters', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
+   { path: 'characters', component: CharacterListComponent },
+   { path: 'characters/:characterId', component: CharacterPageComponent },
+   { path: '', redirectTo: 'characters', pathMatch: 'full' },
+   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+   imports: [RouterModule.forRoot(routes)],
+   exports: [RouterModule]
 })
 export class AppRoutingModule {}

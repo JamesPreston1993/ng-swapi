@@ -10,15 +10,15 @@ import { CharacterPageComponent } from './character-page/character-page.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CharacterListComponent,
-    CharacterDetailsComponent,
-    CharacterPageComponent,
-    PageNotFoundComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
-  bootstrap: [AppComponent],
+   declarations: [
+      AppComponent,
+      CharacterListComponent,
+      CharacterDetailsComponent,
+      CharacterPageComponent,
+      PageNotFoundComponent
+   ],
+   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+   providers: [],
+   bootstrap: [AppComponent]
 })
 export class AppModule {}

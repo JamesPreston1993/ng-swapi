@@ -1,39 +1,58 @@
 <div class="container">
-  <div *ngIf="isLoading" class="d-flex justify-content-center">
-    <div class="spinner-border text-primary text-center"></div>
-  </div>
-  <ng-container *ngIf="!isLoading">
-    <ul class="list-group mt-3">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let character of characters; let i = index">
-        {{ character.name }}
-        <button type="button" class="btn btn-outline-primary" (click)="onDetailsClick(character)">Details</button>
-      </li>
-    </ul>
-    <div class="text-center mt-3">
-      <div class="btn-group">
-        <a *ngIf="characterData?.previous !== null" [routerLink]="['/characters']" [queryParams]="{ page: currentPage - 1 }" class="btn btn-primary">
-          Previous
-        </a>
-        <a *ngIf="characterData?.next !== null" [routerLink]="['/characters']" [queryParams]="{ page: currentPage + 1 }" class="btn btn-primary">
-          Next
-        </a>
+   <div *ngIf="isLoading" class="d-flex justify-content-center">
+      <div class="spinner-border text-primary text-center"></div>
+   </div>
+   <ng-container *ngIf="!isLoading">
+      <ul class="list-group mt-3">
+         <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let character of characters; let i = index"
+         >
+            {{ character.name }}
+            <button
+               type="button"
+               class="btn btn-outline-primary"
+               (click)="onDetailsClick(character)"
+            >
+               Details
+            </button>
+         </li>
+      </ul>
+      <div class="text-center mt-3">
+         <div class="btn-group">
+            <a
+               *ngIf="characterData?.previous !== null"
+               [routerLink]="['/characters']"
+               [queryParams]="{ page: currentPage - 1 }"
+               class="btn btn-primary"
+            >
+               Previous
+            </a>
+            <a
+               *ngIf="characterData?.next !== null"
+               [routerLink]="['/characters']"
+               [queryParams]="{ page: currentPage + 1 }"
+               class="btn btn-primary"
+            >
+               Next
+            </a>
+         </div>
       </div>
-    </div>
-  </ng-container>
+   </ng-container>
 </div>
 
 <div *ngIf="isModalOpen" class="modal show" tabindex="-1" role="dialog" style="display: block;">
-  <div class=" modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Character Details</h5>
-        <button type="button " class="close" (click)="onModalClosed()">
-          <span>&times;</span>
-        </button>
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title">Character Details</h5>
+            <button type="button " class="close" (click)="onModalClosed()">
+               <span>&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <app-character-details [character]="selectedCharacter"></app-character-details>>
+         </div>
       </div>
-      <div class="modal-body ">
-        <app-character-details [character]="selectedCharacter"></app-character-details>>
-      </div>
-    </div>
-  </div>
+   </div>
 </div>

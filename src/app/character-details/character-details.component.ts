@@ -2,16 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../models/Character';
 
 @Component({
-  selector: 'app-character-details',
-  templateUrl: './character-details.component.html',
-  styleUrls: ['./character-details.component.css'],
+   selector: 'app-character-details',
+   templateUrl: './character-details.component.html',
+   styleUrls: ['./character-details.component.css']
 })
 export class CharacterDetailsComponent implements OnInit {
-  @Input() character: Character;
+   @Input() character: Character;
 
-  constructor() { }
+   constructor() {}
 
-  ngOnInit(): void {
-
-  }
+   ngOnInit(): void {}
 }
