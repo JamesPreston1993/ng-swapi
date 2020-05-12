@@ -20,12 +20,11 @@ export class CharacterListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _characterService: CharacterService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.currentPage = +params.page || 1;
-      this.isLoading = true;
       this._characterService
         .getCharacters(this.currentPage)
         .subscribe((response) => {
