@@ -6,9 +6,13 @@
                Details
             </div>
             <ul class="list-group list-group-flush">
-               <li class="list-group-item">Name: {{ character?.name }}</li>
-               <li class="list-group-item">Birth Year: {{ character?.birth_year }}</li>
-               <li class="list-group-item">Gender: {{ character?.gender | titlecase }}</li>
+               <li class="list-group-item character-name">Name: {{ character?.name }}</li>
+               <li class="list-group-item character-birth-year">
+                  Birth Year: {{ character?.birth_year }}
+               </li>
+               <li class="list-group-item character-gender">
+                  Gender: {{ character?.gender | titlecase }}
+               </li>
             </ul>
          </div>
       </div>
@@ -20,8 +24,12 @@
                Face
             </div>
             <ul class="list-group list-group-flush">
-               <li class="list-group-item">Hair Colour: {{ character?.hair_color | titlecase }}</li>
-               <li class="list-group-item">Eye Colour: {{ character?.eye_color | titlecase }}</li>
+               <li class="list-group-item character-hair-colour">
+                  Hair Colour: {{ character?.hair_color | titlecase }}
+               </li>
+               <li class="list-group-item character-eye-colour">
+                  Eye Colour: {{ character?.eye_color | titlecase }}
+               </li>
             </ul>
          </div>
       </div>
@@ -31,9 +39,11 @@
                Body
             </div>
             <ul class="list-group list-group-flush">
-               <li class="list-group-item">Skin Colour: {{ character?.skin_color | titlecase }}</li>
-               <li class="list-group-item">Height: {{ character?.height }}cm</li>
-               <li class="list-group-item">Mass: {{ character?.mass }}kg</li>
+               <li class="list-group-item character-skin-colour">
+                  Skin Colour: {{ character?.skin_color | titlecase }}
+               </li>
+               <li class="list-group-item character-height">Height: {{ character?.height }} cm</li>
+               <li class="list-group-item character-mass">Mass: {{ character?.mass }} kg</li>
             </ul>
          </div>
       </div>
