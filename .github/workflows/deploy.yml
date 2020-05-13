@@ -1,37 +1,39 @@
 env:
-  AZURE_WEBAPP_NAME: jpreston-ng-swapi
-  AZURE_WEBAPP_PACKAGE_PATH: './dist/ng-swapi'
-  NODE_VERSION: '12.x'
+   AZURE_WEBAPP_NAME: jpreston-ng-swapi
+   AZURE_WEBAPP_PACKAGE_PATH: './dist/ng-swapi'
+   NODE_VERSION: '12.x'
 
 name: Build and Deploy to Azure
 
 on:
-  push:
-    branches:
-      - master
+   push:
+      branches:
+         - master
 
 jobs:
-  build-and-deploy:
+   build-and-deploy:
+      runs-on: windows-latest
 
-    runs-on: windows-latest
+      steps:
+         - uses: actions/checkout@v2
 
-    steps:
-    - uses: actions/checkout@v2
+         - name: Use Node.js ${{ env.NODE_VERSION }}
+           uses: actions/setup-node@v1
+           with:
+              node-version: ${{ env.NODE_VERSION }}
 
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
+         - name: Install Dependencies
+           run: npm install
 
-    - name: Install Dependencies
-      run: npm install
+         - name: Build
+           run: npm run build
 
-    - name: Build
-      run: npm run build
+         - name: Test
+           run: npm run test:ci
 
-    - name: Deploy to Azure
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZ_DEPLOY_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+         - name: Deploy to Azure
+           uses: azure/webapps-deploy@v2
+           with:
+              app-name: ${{ env.AZURE_WEBAPP_NAME }}
+              publish-profile: ${{ secrets.AZ_DEPLOY_PROFILE }}
+              package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
