@@ -27,7 +27,7 @@ describe('CharacterListComponent', () => {
             { provide: ActivatedRoute, useValue: { queryParams: of({ page: 2 }) } },
             {
                provide: CharacterService,
-               useValue: { getCharacters: of([character]) }
+               useValue: { getCharacters: () => of([character]) }
             }
          ]
       });
